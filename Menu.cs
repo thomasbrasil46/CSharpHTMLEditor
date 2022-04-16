@@ -14,6 +14,7 @@ namespace EditorHTML
             WriteOptions();
 
             var option = short.Parse(Console.ReadLine());
+            HandleMenuOption(option);
         }
 
         public static void DrawScreen()
@@ -43,7 +44,7 @@ namespace EditorHTML
             Console.Write("\n");
         }
     
-            public static void WriteOptions()
+        public static void WriteOptions()
             {
                 Console.SetCursorPosition(3, 2);
                 Console.WriteLine("Editor HTML");
@@ -60,5 +61,19 @@ namespace EditorHTML
                 Console.SetCursorPosition(3, 10);
                 Console.Write("Opção: ");
             }
+    
+        public static void HandleMenuOption(short option)
+        {
+            switch(option) {
+                case 1: Console.WriteLine("Editor"); break;
+                case 2: Console.WriteLine("View"); break;
+                case 0: {
+                    Console.Clear();
+                    Environment.Exit(0);
+                    break;
+                }
+                default: Show(); break;
+            }
+        }
     }
 }
